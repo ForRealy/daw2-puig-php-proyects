@@ -1,0 +1,18 @@
+<!-- templates/medications_list.twig -->
+<h2>Lista de Medicamentos</h2>
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Acciones</th>
+    </tr>
+    {% for medication in medications %}
+    <tr>
+        <td>{{ medication.name }}</td>
+        <td>{{ medication.description }}</td>
+        <td>
+            <a href="/admin/medications/edit/{{ medication.id }}">Editar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>

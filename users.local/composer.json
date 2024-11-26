@@ -1,0 +1,10 @@
+{
+    "require": {
+        "twig/twig": "^3.0",
+        "twbs/bootstrap": "^5.3",
+        "symfony/twig-bundle":"^7.1",
+        "symfony/form":"^7.1",
+        "symfony/routing":"^7.1",
+        "symfony/http-foundation":"^7.1"
+    }
+}

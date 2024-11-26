@@ -1,0 +1,23 @@
+{% block content %}
+  <h1>Mapa de Ubicaciones</h1>
+  <div id="map" style="height: 400px;"></div>
+  
+  <script>
+    const map = L.map('map').setView([40.4168, -3.7038], 13); // Coordenadas iniciales (ej. Madrid)
+
+    // Cargar mapa base desde OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Agregar marcadores desde los datos scrapeados
+    const data = {{ data|json_encode|raw }};
+    data.forEach(item => {
+        if (item.latitude && item.longitude) {
+            L.marker([item.latitude, item.longitude])
+                .addTo(map)
+                .bindPopup(`<b>${item.name}</b><br>${item.description}`);
+        }
+    });
+  </script>
+{% endblock %}

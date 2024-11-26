@@ -1,0 +1,7 @@
+<!-- templates/edit_medication.twig -->
+<h2>Editar Medicamento</h2>
+<form action="/admin/medications/edit/{{ medication.id }}" method="post">
+    <input type="text" name="name" value="{{ medication.name }}" required>
+    <textarea name="description">{{ medication.description }}</textarea>
+    <button type="submit">Guardar cambios</button>
+</form>
